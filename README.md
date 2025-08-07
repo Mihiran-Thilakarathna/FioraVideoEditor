@@ -20,5 +20,3 @@ Your focus is on the core engine of the video editor.
 ○ [ ] Assist with any final code reviews. 
 
 ### Contributors
-* [Tharinda Pamindu](https://github.com/Tharinda-Pamindu)
-* [Mihiran Thilakarathna](https://github.com/Mihiran-Thilakarathna)
