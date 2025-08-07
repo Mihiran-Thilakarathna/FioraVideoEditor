@@ -19,4 +19,7 @@ Your focus is on the core engine of the video editor.
 ○ [ ] Participate in final testing and bug fixing. 
 ○ [ ] Assist with any final code reviews. 
 
+
 ### Contributors
+* [Tharinda Pamindu](https://github.com/Tharinda-Pamindu)
+* [Mihiran Thilakarathna](https://github.com/Mihiran-Thilakarathna)
