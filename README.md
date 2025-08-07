@@ -18,3 +18,4 @@ Your focus is on the core engine of the video editor.
 ## ● Day 6 & 7: 
 ○ [ ] Participate in final testing and bug fixing. 
 ○ [ ] Assist with any final code reviews. 
+
