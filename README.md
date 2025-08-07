@@ -23,3 +23,6 @@ Your focus is on the core engine of the video editor.
 ### Contributors
 * [Tharinda Pamindu](https://github.com/Tharinda-Pamindu)
 * [Mihiran Thilakarathna](https://github.com/Mihiran-Thilakarathna)
+
+### Start day 01 works
+Participate in the initial planning meeting.
