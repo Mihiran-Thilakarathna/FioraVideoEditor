@@ -1,28 +1,68 @@
-Our ICT2210 project is a desktop video editor developed in Python using libraries like MoviePy and PyQt5. Core features will include video trimming, concatenation, audio track manipulation, and visual effects like filters and transitions. This ambitious project aims to showcase advanced multimedia processing and a functional UI.
-Member 1: Backend Lead (Coder) 
-Your focus is on the core engine of the video editor. 
+# FioraVideoEditor 🎬
 
-## ● Day 1: 
-○ [ ] Participate in the initial planning meeting. 
-○ [ ] Set up your local development environment. 
-## ● Day 2: 
-○ [ ] Write the Python code to load a video file using moviepy or OpenCV. 
-○ [ ] Implement the basic video playback logic. 
-## ● Day 3: 
-○ [ ] Develop the function that trims a video clip based on start and end times. 
-## ● Day 4: 
-○ [ ] Create the function to export the final edited video to a new file. 
-## ● Day 5: 
-○ [ ] Lead the integration of all backend code. 
-○ [ ] Test and debug the core functions (loading, trimming, exporting). 
-## ● Day 6 & 7: 
-○ [ ] Participate in final testing and bug fixing. 
-○ [ ] Assist with any final code reviews. 
+A simple desktop video editor for basic trimming and filtering, created for the ICT2210 Mini Project. This project is developed by a 5-person team over a 7-day period.
 
+## 🌟 Features
 
-### Contributors
-* [Tharinda Pamindu](https://github.com/Tharinda-Pamindu)
-* [Mihiran Thilakarathna](https://github.com/Mihiran-Thilakarathna)
+- **Load Video:** Load video files from the local system.
+- **Trim:** Cut videos to a specific start and end time.
+- **Filters:** Apply simple visual filters like Grayscale.
+- **Adjustments:** Modify video properties such as Brightness, Contrast, and Saturation.
+- **Export:** Save the final edited video as a new MP4 file.
 
-### Start day 01 works
-Participate in the initial planning meeting.
+## 💻 Technology Stack
+
+- **Language:** Python
+- **Core Logic:** MoviePy
+- **User Interface (UI):** Tkinter / PyQt5
+- **Version Control:** Git & GitHub
+- **IDE:** PyCharm
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Make sure you have Python 3.9+ and Git installed on your system.
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git](https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git)
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd FioraVideoEditor
+    ```
+3.  **Create a virtual environment:**
+    ```bash
+    python -m venv venv
+    ```
+4.  **Activate the virtual environment:**
+    ```bash
+    # On Windows
+    .\venv\Scripts\activate
+
+    # On macOS & Linux
+    source venv/bin/activate
+    ```
+5.  **Install the required libraries:**
+    (Ensure you have a `requirements.txt` file in the project)
+    ```bash
+    pip install -r requirements.txt
+    ```
+6.  **Run the application:**
+    ```bash
+    python main_ui_script.py 
+    ```
+    *(Note: Replace `main_ui_script.py` with the actual name of the main runnable file)*
+
+## 👥 Team Members
+
+* **T.H.M.Thilakarathna** - *Backend & Project Setup*
+* **D.V.T.R.Vitharana** - *UI/UX Designer*
+* **D.T.P.D Wickramasinghe** - *Features Developer*
+* **S.H.M.P.K.Senadheera** - *Features Developer*
+* **D.D.S.S.Kumasaru** - *Documentation & Testing*
