@@ -65,4 +65,4 @@ Make sure you have Python 3.9+ and Git installed on your system.
 * **D.V.T.R.Vitharana** - *UI/UX Designer*
 * **D.T.P.D Wickramasinghe** - *Features Developer*
 * **S.H.M.P.K.Senadheera** - *Features Developer*
-* **D.D.S.S.Kumasaru** - *Documentation & Testing*
+* **D.D.S.S.Kumasaru** - *Documentation*
