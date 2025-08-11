@@ -56,8 +56,8 @@ To get a local copy up and running, follow these steps exactly.
     
 ## 👥 Team Members
 
-* **T.H.M.Thilakarathna** - *Backend & Project Setup*
-* **D.V.T.R.Vitharana** - *UI/UX Designer*
-* **D.T.P.D Wickramasinghe** - *Features Developer*
-* **S.H.M.P.K.Senadheera** - *Features Developer*
-* **D.D.S.S.Kumasaru** - *Documentation & Testing*
+* **[T.H.M.Thilakarathna](https://github.com/Mihiran-Thilakarathna)** - *Backend & Project Setup*
+* **[D.V.T.R.Vitharana](https://github.com/Thinuka2835)** - *UI/UX Designer*
+* **[D.T.P.D Wickramasinghe](https://github.com/Tharinda-Pamindu)** - *Features Developer*
+* **[S.H.M.P.K.Senadheera](https://github.com/Piyumanjalee)** - *Features Developer*
+* **[D.D.S.S.Kumasaru](https://github.com/Dilakshi13)** - *Documentation & Testing*
