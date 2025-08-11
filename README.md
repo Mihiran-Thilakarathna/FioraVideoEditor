@@ -1,28 +1,63 @@
-Our ICT2210 project is a desktop video editor developed in Python using libraries like MoviePy and PyQt5. Core features will include video trimming, concatenation, audio track manipulation, and visual effects like filters and transitions. This ambitious project aims to showcase advanced multimedia processing and a functional UI.
-Member 1: Backend Lead (Coder) 
-Your focus is on the core engine of the video editor. 
+# FioraVideoEditor 🎬
 
-## ● Day 1: 
-○ [ ] Participate in the initial planning meeting. 
-○ [ ] Set up your local development environment. 
-## ● Day 2: 
-○ [ ] Write the Python code to load a video file using moviepy or OpenCV. 
-○ [ ] Implement the basic video playback logic. 
-## ● Day 3: 
-○ [ ] Develop the function that trims a video clip based on start and end times. 
-## ● Day 4: 
-○ [ ] Create the function to export the final edited video to a new file. 
-## ● Day 5: 
-○ [ ] Lead the integration of all backend code. 
-○ [ ] Test and debug the core functions (loading, trimming, exporting). 
-## ● Day 6 & 7: 
-○ [ ] Participate in final testing and bug fixing. 
-○ [ ] Assist with any final code reviews. 
+A simple desktop video editor created for the ICT2210 Mini Project. This project is developed by a 5-person team with a focus on core video manipulation functionalities using Python.
 
+## 🌟 Features
 
-### Contributors
-* [Tharinda Pamindu](https://github.com/Tharinda-Pamindu)
-* [Mihiran Thilakarathna](https://github.com/Mihiran-Thilakarathna)
+- Load video files from the local system.
+- Trim videos to a specific start and end time.
+- Apply simple visual filters like Grayscale.
+- Adjust video properties such as Brightness, Contrast, and Saturation.
+- Export the final edited video as a new MP4 file.
 
-### Start day 01 works
-Participate in the initial planning meeting.
+## 💻 Technology Stack
+
+- **Language:** Python 3.9+
+- **Core Logic:** MoviePy (Version 1.0.3)
+- **IDE:** PyCharm Community Edition
+- **Version Control:** Git & GitHub
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these steps exactly.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git](https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git)
+    ```
+
+2.  **Navigate to the project directory:**
+    ```bash
+    cd FioraVideoEditor
+    ```
+
+3.  **Create and activate the virtual environment:**
+    ```bash
+    # Create the venv
+    python -m venv venv
+
+    # Activate the venv on Windows
+    .\venv\Scripts\activate
+    ```
+
+4.  **Install the required library:**
+    *Important Note: We are installing a specific, stable version of MoviePy to avoid a faulty version found on PyPI.*
+    ```bash
+    pip install moviepy==1.0.3
+    ```
+
+5.  **Run the backend test script:**
+    (First, ensure you have changed the placeholder file paths inside the `if __name__ == "__main__":` block in `backend_processor.py`)
+    ```bash
+    python backend_processor.py
+    ```
+    
+## 👥 Team Members
+
+* **T.H.M.Thilakarathna** - *Backend & Project Setup*
+* **D.V.T.R.Vitharana** - *UI/UX Designer*
+* **D.T.P.D Wickramasinghe** - *Features Developer*
+* **S.H.M.P.K.Senadheera** - *Features Developer*
+* **D.D.S.S.Kumasaru** - *Documentation & Testing*
