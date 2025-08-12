@@ -54,6 +54,21 @@ To get a local copy up and running, follow these steps exactly.
     python backend_processor.py
     ```
     
+## 🖥️ User Interface
+
+- **Framework:** Tkinter (Python standard library)
+- **Layout:** Responsive panes using `ttk.PanedWindow`
+- **Features:**
+  - Custom window icon (with fallback if missing)
+  - Toggleable UI sections for better workflow
+  - Intuitive controls for video loading, trimming, and filter application
+- **File:** `dashboard_ui.py`## 🖼️ Screenshot
+
+!## 🖼️ Screenshot
+
+![Dashboard UI Screenshot](assets/v01.png)
+
+
 ## 👥 Team Members
 
 * **[T.H.M.Thilakarathna](https://github.com/Mihiran-Thilakarathna)** - *Backend & Project Setup*

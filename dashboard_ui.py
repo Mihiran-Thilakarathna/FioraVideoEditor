@@ -159,7 +159,29 @@ root.config(menu=menubar)
 # -------------------------
 # Paned layout: left | center+bottom | right
 # -------------------------
-main_paned = ttk.Panedwindow(root, orient=tk.HORIZONTAL)
+main_paned = ttk.Panedwindow(root, # 1. iconbitmap error handling
+try:
+    root.iconbitmap("icon.ico")
+except Exception:
+    pass  # Ignore if icon file is missing
+
+# 2. Panedwindow typo fix
+main_paned = ttk.PanedWindow(root, orient=tk.HORIZONTAL)
+main_paned.pack(fill=tk.BOTH, expand=True, padx=8, pady=(8,0))
+
+# Middle pane will itself be a vertical paned window (preview above, timeline below)
+mid_paned = ttk.PanedWindow(main_paned, orient=tk.VERTICAL)
+main_paned.add(mid_paned, weight=3)
+
+# 3. toggle_frame fix
+def toggle_frame(frame_container, toggle_btn):
+    """Toggle visibility of a frame inside a container (pack/grid aware)."""
+    if frame_container.winfo_viewable():
+        frame_container.pack_forget()
+        toggle_btn.configure(text="► " + toggle_btn.original_text)
+    else:
+        frame_container.pack(fill="x", padx=6, pady=(0,6))
+        toggle_btn.configure(text="▼ " + toggle_btn.original_text)orient=tk.HORIZONTAL)
 main_paned.pack(fill=tk.BOTH, expand=True, padx=8, pady=(8,0))
 
 # Left toolbar frame
