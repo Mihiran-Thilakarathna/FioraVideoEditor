@@ -14,6 +14,7 @@ A simple desktop video editor created for the ICT2210 Mini Project. This project
 
 - **Language:** Python 3.9+
 - **Core Logic:** MoviePy (Version 1.0.3)
+- **User Interface:** Tkinter with `ttk` for a modern look
 - **IDE:** PyCharm Community Edition
 - **Version Control:** Git & GitHub
 
@@ -48,26 +49,27 @@ To get a local copy up and running, follow these steps exactly.
     pip install moviepy==1.0.3
     ```
 
-5.  **Run the backend test script:**
-    (First, ensure you have changed the placeholder file paths inside the `if __name__ == "__main__":` block in `backend_processor.py`)
+5.  **Run the application:**
     ```bash
-    python backend_processor.py
+    python dashboard_ui.py
     ```
     
 ## 🖥️ User Interface
 
-- **Framework:** Tkinter (Python standard library)
-- **Layout:** Responsive panes using `ttk.PanedWindow`
-- **Features:**
-  - Custom window icon (with fallback if missing)
-  - Toggleable UI sections for better workflow
-  - Intuitive controls for video loading, trimming, and filter application
-- **File:** `dashboard_ui.py`## 🖼️ Screenshot
+The application features a modern, dark-themed, three-pane layout built with Python's native Tkinter library, using the `ttk` extension for a contemporary look and feel.
 
-!## 🖼️ Screenshot
+**Key Components:**
+* **Main Layout:** A responsive three-pane structure (`ttk.PanedWindow`) consisting of a Toolbar (Left), Main Area (Center), and Properties Panel (Right).
+* **Left Toolbar:** Provides quick access to main tools: Cut (`✂️`), Move (`🖱️`), Add Text (`🅰️`), and Adjust (`⚙️`), along with dedicated buttons for `Import` and `Export` operations.
+* **Center Panel:** Vertically split into a top section for the video preview with playback controls, and a bottom, scrollable timeline to visualize video clips.
+* **Right Properties Panel:** Features collapsible sections for an uncluttered workspace, including:
+    * **Adjustments:** Sliders for fine-tuning Brightness, Contrast, Shadows, Highlights, etc.
+    * **Color Mixer:** Sliders for individual RGB color correction.
+* **Other Elements:** Includes a standard top menu bar (File, Edit, Help) and a status bar at the bottom to display current actions and messages.
 
-![Dashboard UI Screenshot](assets/v01.png)
+## 🖼️ Screenshot
 
+![Fiora Editor UI](assets/ui_screenshot.png)
 
 ## 👥 Team Members
 
