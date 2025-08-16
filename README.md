@@ -1,75 +1,131 @@
-# FioraVideoEditor 🎬
+Of course, here is a more detailed, industry-standard README file for your project.
 
-A simple, modern desktop video editor created for the ICT2210 Mini Project. This application provides core video and audio manipulation functionalities with an intuitive, multi-pane user interface.
+-----
 
-## 🌟 Features
+# Fiora Video Editor
 
-- **File Handling:** Import separate video and audio tracks. Export projects as a single MP4 file with audio automatically trimmed to match video length.
-- **Interactive Timeline:**
-    - Visual, multi-track display for video (`V1`) and audio (`Audio 1`).
-    - Dynamic time ruler that adapts to the project's total duration and displays time in `MM:SS` format.
-    - Clickable playhead to seek to any point in the video for precise previewing.
-    - Horizontal scrolling for long clips.
-- **Real-time Preview:** A central preview panel that updates instantly based on timeline seeking and effect adjustments.
-- **Editing Tools:**
-    - **Trim:** Cut video clips to a specific start and end time via a dedicated properties panel.
-    - **Adjustments:** Fine-tune the look of your video with sliders for Brightness, Contrast, Shadows, and Highlights.
-    - **Filters:** Apply simple one-click filters like Grayscale.
+[](https://www.python.org/downloads/)
+[](https://opensource.org/licenses/MIT)
 
-## 💻 Technology Stack
+A simple and modern desktop video editor built with Python, Tkinter, and MoviePy. Fiora provides core video and audio manipulation functionalities through an intuitive, multi-pane user interface, making it easy to perform essential editing tasks.
 
-- **Language:** Python 3.9+
-- **Core Logic:** MoviePy (`1.0.3`)
-- **Image Processing:** Pillow (for UI preview)
-- **User Interface:** Tkinter with `ttk` for a modern look
-- **IDE:** PyCharm Community Edition
-- **Version Control:** Git & GitHub
+*(Suggestion: Replace this with a screenshot or GIF of your application)*
 
-## 🚀 Getting Started
+## Features
 
-To get a local copy up and running, follow these steps exactly.
+Fiora Video Editor comes packed with features designed for an efficient editing workflow:
+
+  * **🎬 File Handling**:
+
+      * Import separate video (`.mp4`, `.avi`, `.mov`) and audio (`.mp3`, `.wav`, `.ogg`) tracks.
+      * Export projects into a single, combined MP4 file.
+      * Audio tracks are automatically trimmed or extended to match the video's final duration.
+
+  * **🎞️ Interactive Timeline**:
+
+      * A visual, multi-track display for video (`V1`) and audio (`Audio 1`).
+      * Dynamic time ruler that intelligently adapts its markers to the project's total duration, displaying time in a clear `MM:SS` format.
+      * A clickable playhead allows you to instantly seek to any point in the video for precise previewing.
+      * Supports horizontal scrolling to easily navigate longer video clips.
+
+  * **🖥️ Real-time Preview**:
+
+      * A central preview panel that updates instantly based on timeline seeking and any applied adjustments or filters.
+      * The preview window intelligently resizes the video to fit the available space while maintaining the correct aspect ratio.
+
+  * **🛠️ Editing Tools**:
+
+      * **Trim**: Easily cut video clips to a specific start and end time using a dedicated properties panel.
+      * **Adjustments**: Fine-tune the look of your video with real-time sliders for:
+          * Brightness
+          * Contrast
+          * Shadows (Gamma)
+          * Highlights
+      * **Filters**: Apply simple one-click filters, such as Grayscale, to alter the mood of your video.
+
+## Technology Stack
+
+This project leverages a combination of powerful and standard Python libraries:
+
+  * **Core Logic**: [**MoviePy**](https://zulko.github.io/moviepy/) for all video and audio processing tasks.
+  * **User Interface**: [**Tkinter**](https://docs.python.org/3/library/tkinter.html) (with the `ttk` extension) for creating the native desktop GUI.
+  * **Image Processing**: [**Pillow (PIL)**](https://www.google.com/search?q=https://python-pillow.org/) for handling image conversions for the video preview panel.
+  * **Language**: **Python 3.9+**
+  * **IDE**: PyCharm Community Edition
+  * **Version Control**: Git & GitHub
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Ensure you have Python 3.9 or higher installed on your system.
 
 ### Installation
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git](https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git)
+    git clone https://github.com/Mihiran-Thilakarathna/FioraVideoEditor.git
     ```
-
 2.  **Navigate to the project directory:**
     ```bash
     cd FioraVideoEditor
     ```
-
-3.  **Create and activate the virtual environment:**
+3.  **Create and activate a virtual environment:**
     ```bash
-    # Create the venv
+    # Create the virtual environment
     python -m venv venv
 
-    # Activate the venv on Windows
+    # Activate on Windows
     .\venv\Scripts\activate
-    ```
 
-4.  **Install all required libraries:**
-    (This single command installs all necessary packages like `moviepy` and `Pillow` from the `requirements.txt` file.)
+    # Activate on macOS/Linux
+    source venv/bin/activate
+    ```
+4.  **Install the required libraries:**
+    The `requirements.txt` file is not present in the provided files, but based on the code, you would need to create one with `moviepy` and `Pillow`. For now, you can install them directly:
     ```bash
-    pip install -r requirements.txt
+    pip install moviepy Pillow
     ```
-
 5.  **Run the application:**
     ```bash
     python main_ui.py
     ```
-    
-## 🖥️ User Interface
 
-The application features a modern, dark-themed, three-pane layout built with Python's native Tkinter library.
+## Project Structure
 
-* **Left Toolbar:** Provides quick access to main tools (`Trim`, `Adjust`, `Filters`) and file operations (`Import`, `Export`) with icons for a clean look.
-* **Center Panel:** A vertically split view with a large, real-time video preview on top and the interactive, multi-track timeline below.
-* **Right Properties Panel:** A dynamic panel that displays the relevant controls (sliders, input boxes) for the tool currently selected from the toolbar.
+```
+FioraVideoEditor/
+├── assets/
+│   ├── adjust_icon.png
+│   ├── export_icon.png
+│   ├── filters_icon.png
+│   ├── import_icon.png
+│   └── trim_icon.png
+├── .gitignore
+├── backend_processor.py  # Handles all video/audio processing with MoviePy
+├── main_ui.py            # Main application entry point and Tkinter UI code
+└── README.md
+```
 
-## 👥 Team Members
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information. (Note: You'll need to add a LICENSE file with the MIT license text).
+
+## Authors
 
 * **[T.H.M.Thilakarathna](https://github.com/Mihiran-Thilakarathna)** - *Backend & Project Setup*
 * **[D.V.T.R.Vitharana](https://github.com/Thinuka2835)** - *UI/UX Designer*
