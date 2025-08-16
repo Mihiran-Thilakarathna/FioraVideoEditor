@@ -1,19 +1,26 @@
 # FioraVideoEditor 🎬
 
-A simple desktop video editor created for the ICT2210 Mini Project. This project is developed by a 5-person team with a focus on core video manipulation functionalities using Python.
+A simple, modern desktop video editor created for the ICT2210 Mini Project. This application provides core video and audio manipulation functionalities with an intuitive, multi-pane user interface.
 
 ## 🌟 Features
 
-- Load video files from the local system.
-- Trim videos to a specific start and end time.
-- Apply simple visual filters like Grayscale.
-- Adjust video properties such as Brightness, Contrast, and Saturation.
-- Export the final edited video as a new MP4 file.
+- **File Handling:** Import separate video and audio tracks. Export projects as a single MP4 file with audio automatically trimmed to match video length.
+- **Interactive Timeline:**
+    - Visual, multi-track display for video (`V1`) and audio (`Audio 1`).
+    - Dynamic time ruler that adapts to the project's total duration and displays time in `MM:SS` format.
+    - Clickable playhead to seek to any point in the video for precise previewing.
+    - Horizontal scrolling for long clips.
+- **Real-time Preview:** A central preview panel that updates instantly based on timeline seeking and effect adjustments.
+- **Editing Tools:**
+    - **Trim:** Cut video clips to a specific start and end time via a dedicated properties panel.
+    - **Adjustments:** Fine-tune the look of your video with sliders for Brightness, Contrast, Shadows, and Highlights.
+    - **Filters:** Apply simple one-click filters like Grayscale.
 
 ## 💻 Technology Stack
 
 - **Language:** Python 3.9+
-- **Core Logic:** MoviePy (Version 1.0.3)
+- **Core Logic:** MoviePy (`1.0.3`)
+- **Image Processing:** Pillow (for UI preview)
 - **User Interface:** Tkinter with `ttk` for a modern look
 - **IDE:** PyCharm Community Edition
 - **Version Control:** Git & GitHub
@@ -43,33 +50,24 @@ To get a local copy up and running, follow these steps exactly.
     .\venv\Scripts\activate
     ```
 
-4.  **Install the required library:**
-    *Important Note: We are installing a specific, stable version of MoviePy to avoid a faulty version found on PyPI.*
+4.  **Install all required libraries:**
+    (This single command installs all necessary packages like `moviepy` and `Pillow` from the `requirements.txt` file.)
     ```bash
-    pip install moviepy==1.0.3
+    pip install -r requirements.txt
     ```
 
 5.  **Run the application:**
     ```bash
-    python dashboard_ui.py
+    python main_ui.py
     ```
     
 ## 🖥️ User Interface
 
-The application features a modern, dark-themed, three-pane layout built with Python's native Tkinter library, using the `ttk` extension for a contemporary look and feel.
+The application features a modern, dark-themed, three-pane layout built with Python's native Tkinter library.
 
-**Key Components:**
-* **Main Layout:** A responsive three-pane structure (`ttk.PanedWindow`) consisting of a Toolbar (Left), Main Area (Center), and Properties Panel (Right).
-* **Left Toolbar:** Provides quick access to main tools: Cut (`✂️`), Move (`🖱️`), Add Text (`🅰️`), and Adjust (`⚙️`), along with dedicated buttons for `Import` and `Export` operations.
-* **Center Panel:** Vertically split into a top section for the video preview with playback controls, and a bottom, scrollable timeline to visualize video clips.
-* **Right Properties Panel:** Features collapsible sections for an uncluttered workspace, including:
-    * **Adjustments:** Sliders for fine-tuning Brightness, Contrast, Shadows, Highlights, etc.
-    * **Color Mixer:** Sliders for individual RGB color correction.
-* **Other Elements:** Includes a standard top menu bar (File, Edit, Help) and a status bar at the bottom to display current actions and messages.
-
-## 🖼️ Screenshot
-
-![Fiora Editor UI](assets/ui_screenshot.png)
+* **Left Toolbar:** Provides quick access to main tools (`Trim`, `Adjust`, `Filters`) and file operations (`Import`, `Export`) with icons for a clean look.
+* **Center Panel:** A vertically split view with a large, real-time video preview on top and the interactive, multi-track timeline below.
+* **Right Properties Panel:** A dynamic panel that displays the relevant controls (sliders, input boxes) for the tool currently selected from the toolbar.
 
 ## 👥 Team Members
 
