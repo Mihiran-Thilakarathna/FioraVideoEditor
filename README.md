@@ -1,6 +1,4 @@
-Of course, here is a more detailed, industry-standard README file for your project.
 
------
 
 # Fiora Video Editor
 
