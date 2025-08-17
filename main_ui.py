@@ -4,7 +4,6 @@ from backend_processor import FioraBackend
 from PIL import Image, ImageTk
 import os
 
-
 class VideoEditorUI:
     def __init__(self, master):
         self.master = master
