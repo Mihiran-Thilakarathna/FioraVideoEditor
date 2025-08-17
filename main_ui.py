@@ -28,6 +28,13 @@ class VideoEditorUI:
         self.playhead_id = None
         self.icons = {}
 
+        try:
+            icon_path = os.path.join("assets", "Fiora.png")
+            app_icon = tk.PhotoImage(file=icon_path)
+            self.master.iconphoto(False, app_icon)
+        except tk.TclError:
+            print("Icon not found: Please ensure 'Fiora.png' is in the 'assets' folder.")
+
         self._load_icons()
         self._create_widgets()
 
