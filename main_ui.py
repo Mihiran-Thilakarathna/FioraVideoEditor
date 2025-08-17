@@ -13,20 +13,28 @@ class VideoEditorUI:
         self.master.minsize(900, 600)
 
         # --- Theme, Colors, and State Variables ---
-        self.BG_COLOR = "#2e2e2e";
-        self.FRAME_COLOR = "#252628";
-        self.BUTTON_COLOR = "#3c3c3c";
-        self.TEXT_COLOR = "#ffffff";
-        self.ACCENT_COLOR_VIDEO = "#8e44ad";
+        self.BG_COLOR = "#2e2e2e"
+        self.FRAME_COLOR = "#252628"
+        self.BUTTON_COLOR = "#3c3c3c"
+        self.TEXT_COLOR = "#ffffff"
+        self.ACCENT_COLOR_VIDEO = "#8e44ad"
         self.ACCENT_COLOR_AUDIO = "#27ae60"
         self.master.configure(bg=self.BG_COLOR)
 
         self.processor = FioraBackend()
         self.status_var = tk.StringVar(value="Welcome to Fiora Editor!")
-        self.pixels_per_second = 20;
-        self.current_time = 0.0;
-        self.playhead_id = None;
+        self.pixels_per_second = 20
+        self.current_time = 0.0
+        self.playhead_id = None
         self.icons = {}
+
+        try:
+            # Assumes 'Fiora.png' is in the 'assets' directory
+            icon_path = os.path.join("assets", "Fiora.png")
+            app_icon = tk.PhotoImage(file=icon_path)
+            self.master.iconphoto(False, app_icon)
+        except tk.TclError:
+            print("Icon not found: Please ensure 'Fiora.png' is in the 'assets' folder.")
 
         self._load_icons()
         self._create_widgets()
@@ -44,21 +52,21 @@ class VideoEditorUI:
         style = ttk.Style();
         style.theme_use('clam');
         style.configure("TButton", padding=8, relief="flat", background=self.BUTTON_COLOR, foreground=self.TEXT_COLOR,
-                        font=('Segoe UI', 10));
-        style.map("TButton", background=[('active', '#4c4c4c')]);
-        style.configure("TFrame", background=self.FRAME_COLOR);
+                        font=('Segoe UI', 10))
+        style.map("TButton", background=[('active', '#4c4c4c')])
+        style.configure("TFrame", background=self.FRAME_COLOR)
         style.configure("TLabel", background=self.FRAME_COLOR, foreground=self.TEXT_COLOR, font=('Segoe UI', 10));
-        style.configure("TScale", background=self.FRAME_COLOR);
+        style.configure("TScale", background=self.FRAME_COLOR)
         style.configure("Header.TLabel", font=('Segoe UI', 11, 'bold'))
-        main_paned = ttk.Panedwindow(self.master, orient=tk.HORIZONTAL);
+        main_paned = ttk.Panedwindow(self.master, orient=tk.HORIZONTAL)
         main_paned.pack(fill=tk.BOTH, expand=True, padx=8, pady=(8, 0))
-        left_frame = ttk.Frame(main_paned, width=150);
-        left_frame.pack_propagate(False);
+        left_frame = ttk.Frame(main_paned, width=150)
+        left_frame.pack_propagate(False)
         main_paned.add(left_frame)
-        mid_paned = ttk.Panedwindow(main_paned, orient=tk.VERTICAL);
+        mid_paned = ttk.Panedwindow(main_paned, orient=tk.VERTICAL)
         main_paned.add(mid_paned, weight=1)
-        self.right_frame = ttk.Frame(main_paned, width=300);
-        self.right_frame.pack_propagate(False);
+        self.right_frame = ttk.Frame(main_paned, width=300)
+        self.right_frame.pack_propagate(False)
         main_paned.add(self.right_frame)
 
         # --- Left Toolbar ---
@@ -87,25 +95,25 @@ class VideoEditorUI:
         # --- Center Panel & Status Bar ---
         preview_container = ttk.Frame(mid_paned);
         mid_paned.add(preview_container, weight=5);
-        self.preview_canvas = tk.Canvas(preview_container, bg="black", highlightthickness=0);
-        self.preview_canvas.pack(fill=tk.BOTH, expand=True);
-        self.preview_canvas.bind("<Configure>", self._resize_preview);
+        self.preview_canvas = tk.Canvas(preview_container, bg="black", highlightthickness=0)
+        self.preview_canvas.pack(fill=tk.BOTH, expand=True)
+        self.preview_canvas.bind("<Configure>", self._resize_preview)
         self.tk_image = None
-        timeline_panel = ttk.Frame(mid_paned, height=180);
+        timeline_panel = ttk.Frame(mid_paned, height=180)
         mid_paned.add(timeline_panel, weight=1);
-        self.track_header_canvas = tk.Canvas(timeline_panel, width=80, bg=self.FRAME_COLOR, highlightthickness=0);
-        self.track_header_canvas.pack(side=tk.LEFT, fill=tk.Y);
-        h_scroll = ttk.Scrollbar(timeline_panel, orient=tk.HORIZONTAL);
-        h_scroll.pack(side=tk.BOTTOM, fill=tk.X);
+        self.track_header_canvas = tk.Canvas(timeline_panel, width=80, bg=self.FRAME_COLOR, highlightthickness=0)
+        self.track_header_canvas.pack(side=tk.LEFT, fill=tk.Y)
+        h_scroll = ttk.Scrollbar(timeline_panel, orient=tk.HORIZONTAL)
+        h_scroll.pack(side=tk.BOTTOM, fill=tk.X)
         self.timeline_canvas = tk.Canvas(timeline_panel, bg="#1e1f23", highlightthickness=0,
-                                         xscrollcommand=h_scroll.set);
-        self.timeline_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True);
-        h_scroll.config(command=self.timeline_canvas.xview);
+                                         xscrollcommand=h_scroll.set)
+        self.timeline_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        h_scroll.config(command=self.timeline_canvas.xview)
         self.timeline_canvas.bind("<Button-1>", self._on_timeline_click)
 
         self._create_all_panels()
         self._show_adjust_panel()  # Show default panel
-        status_bar = tk.Label(self.master, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W);
+        status_bar = tk.Label(self.master, textvariable=self.status_var, relief=tk.SUNKEN, anchor=tk.W)
         status_bar.pack(side=tk.BOTTOM, fill=tk.X)
         self._draw_timeline()
 
@@ -157,13 +165,13 @@ class VideoEditorUI:
         return frame
 
     def _create_trim_panel(self):
-        frame = ttk.Frame(self.right_frame);
-        ttk.Label(frame, text="Start Time (seconds):").pack(pady=(10, 0));
-        self.start_time_entry = ttk.Entry(frame);
-        self.start_time_entry.pack(pady=5, padx=10, fill='x');
-        ttk.Label(frame, text="End Time (seconds):").pack(pady=(10, 0));
+        frame = ttk.Frame(self.right_frame)
+        ttk.Label(frame, text="Start Time (seconds):").pack(pady=(10, 0))
+        self.start_time_entry = ttk.Entry(frame)
+        self.start_time_entry.pack(pady=5, padx=10, fill='x')
+        ttk.Label(frame, text="End Time (seconds):").pack(pady=(10, 0))
         self.end_time_entry = ttk.Entry(frame);
-        self.end_time_entry.pack(pady=5, padx=10, fill='x');
+        self.end_time_entry.pack(pady=5, padx=10, fill='x')
         ttk.Button(frame, text="Apply Trim", command=self._apply_trim).pack(pady=20)
         return frame
 
@@ -201,14 +209,16 @@ class VideoEditorUI:
         return frame
 
     def _load_video(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Video Files", "*.mp4 *.avi *.mov")]);
+        file_path = filedialog.askopenfilename(filetypes=[("Video Files", "*.mp4 *.avi *.mov")])
         if file_path and self.processor.load_video(file_path):
-            self.status_var.set(f"Loaded: {os.path.basename(file_path)}"); self._update_preview(); self._draw_timeline()
+            self.status_var.set(f"Loaded: {os.path.basename(file_path)}")
+            self._update_preview()
+            self._draw_timeline()
         else:
             self.status_var.set("Failed to load video.")
 
     def _load_audio(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Audio Files", "*.mp3 *.wav *.ogg")]);
+        file_path = filedialog.askopenfilename(filetypes=[("Audio Files", "*.mp3 *.wav *.ogg")])
         if file_path and self.processor.load_audio(file_path): self.status_var.set(
             "Audio loaded."); self._draw_timeline()
 
@@ -216,7 +226,7 @@ class VideoEditorUI:
         if not self.processor.clip: messagebox.showwarning("Warning", "Please load a video first."); return
         file_path = filedialog.asksaveasfilename(defaultextension=".mp4")
         if file_path:
-            self.status_var.set("Exporting...");
+            self.status_var.set("Exporting...")
             self.master.update()
             if self.processor.export_video(file_path):
                 self.status_var.set("Export successful!")
@@ -224,7 +234,7 @@ class VideoEditorUI:
                 self.status_var.set("Export failed.")
 
     def _draw_timeline(self):
-        self.timeline_canvas.delete("all");
+        self.timeline_canvas.delete("all")
         self.track_header_canvas.delete("all")
         track_height, ruler_height, v1_y, audio1_y = 60, 25, 25, 85
         self.track_header_canvas.create_text(40, v1_y + track_height / 2, text="V1", fill=self.TEXT_COLOR,
@@ -244,7 +254,8 @@ class VideoEditorUI:
             step = 60
 
         def format_time(seconds):
-            mins, secs = divmod(int(seconds), 60); return f"{mins:02d}:{secs:02d}"
+            mins, secs = divmod(int(seconds), 60)
+            return f"{mins:02d}:{secs:02d}"
 
         total_width = (total_duration + step) * self.pixels_per_second
         for i in range(0, int(total_duration) + step, step):
@@ -260,7 +271,7 @@ class VideoEditorUI:
                                                                             audio1_y + track_height,
                                                                             fill=self.ACCENT_COLOR_AUDIO,
                                                                             outline="#000")
-        self.timeline_canvas.config(scrollregion=(0, 0, total_width, 250));
+        self.timeline_canvas.config(scrollregion=(0, 0, total_width, 250))
         self._draw_playhead()
 
     def _draw_playhead(self):
@@ -270,23 +281,23 @@ class VideoEditorUI:
 
     def _on_timeline_click(self, event):
         if not self.processor.clip: return
-        clicked_x = self.timeline_canvas.canvasx(event.x);
+        clicked_x = self.timeline_canvas.canvasx(event.x)
         self.current_time = clicked_x / self.pixels_per_second
         if 0 <= self.current_time <= self.processor.clip.duration:
-            self.status_var.set(f"Seek to: {self.current_time:.2f}s");
-            self._update_preview(time=self.current_time);
+            self.status_var.set(f"Seek to: {self.current_time:.2f}s")
+            self._update_preview(time=self.current_time)
             self._draw_playhead()
 
     def _update_preview(self, time=0):
         if not self.processor.clip: return
-        frame = self.processor.clip.get_frame(time);
+        frame = self.processor.clip.get_frame(time)
         pil_image = Image.fromarray(frame)
         canvas_w, canvas_h = self.preview_canvas.winfo_width(), self.preview_canvas.winfo_height()
         if canvas_w < 2 or canvas_h < 2: return
         ratio = min(canvas_w / self.processor.clip.w, canvas_h / self.processor.clip.h)
         new_size = (int(self.processor.clip.w * ratio), int(self.processor.clip.h * ratio));
-        pil_image = pil_image.resize(new_size, Image.LANCZOS);
-        self.tk_image = ImageTk.PhotoImage(image=pil_image);
+        pil_image = pil_image.resize(new_size, Image.LANCZOS)
+        self.tk_image = ImageTk.PhotoImage(image=pil_image)
         self.preview_canvas.delete("all");
         self.preview_canvas.create_image(canvas_w / 2, canvas_h / 2, anchor=tk.CENTER, image=self.tk_image)
 
@@ -298,21 +309,23 @@ class VideoEditorUI:
         try:
             start, end = float(self.start_time_entry.get()), float(self.end_time_entry.get())
             if self.processor.trim_video(start, end):
-                self.status_var.set(f"Trimmed from {start}s to {end}s."); self._update_preview(); self._draw_timeline()
+                self.status_var.set(f"Trimmed from {start}s to {end}s.")
+                self._update_preview()
+                self._draw_timeline()
             else:
                 self.status_var.set("Trim failed.")
         except ValueError:
             self.status_var.set("Error: Invalid time.")
 
     def _update_adjustment(self, key, value):
-        self.processor.set_adjustment(key, value);
-        self.status_var.set(f"{key.capitalize()}: {value:.2f}");
+        self.processor.set_adjustment(key, value)
+        self.status_var.set(f"{key.capitalize()}: {value:.2f}")
         self._update_preview(self.current_time)
 
     def _apply_filter(self, filter_name):
         if not self.processor.clip: messagebox.showwarning("Warning", "Please load a video first."); return
-        self.processor.apply_filter(filter_name);
-        self.status_var.set(f"Applied {filter_name} filter.");
+        self.processor.apply_filter(filter_name)
+        self.status_var.set(f"Applied {filter_name} filter.")
         self._update_preview(self.current_time)
 
     def _reset_all(self):
