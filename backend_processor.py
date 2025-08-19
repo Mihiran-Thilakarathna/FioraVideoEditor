@@ -1,7 +1,6 @@
 import numpy as np
 from moviepy.editor import VideoFileClip, AudioFileClip, vfx, afx
 
-
 class FioraBackend:
     def __init__(self):
         self.clip = None
@@ -105,6 +104,7 @@ class FioraBackend:
                 self.original_audio = self.original_audio.subclip(start, end)
             return True
         except Exception as e:
+            print(f"ERROR during trim: {e}")
             return False
 
     def apply_filter(self, filter_name):
@@ -126,4 +126,5 @@ class FioraBackend:
             final_clip.write_videofile(output_path, codec="libx264", threads=4, preset="medium")
             return True
         except Exception as e:
+            print(f"ERROR: Could not export video. Reason: {e}")
             return False
