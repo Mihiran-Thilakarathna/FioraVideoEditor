@@ -400,7 +400,7 @@ class VideoEditorUI:
         self.status_var.set(f"Applied {filter_name} filter.")
         self._update_preview(self.current_time)
 
-    # --- CHANGED: Reset All function එකටත් trim entry fields clear කරන code එක එකතු කළා ---
+    # --- CHANGED: Reset All function එකටත් trim entry fields clear
     def _reset_all(self):
         if self.processor.reset_all_changes():
             self.status_var.set("All changes have been reset.")
