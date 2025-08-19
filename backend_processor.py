@@ -1,5 +1,3 @@
-# backend_processor.py
-
 import numpy as np
 from moviepy.editor import VideoFileClip, AudioFileClip, vfx, CompositeAudioClip
 
