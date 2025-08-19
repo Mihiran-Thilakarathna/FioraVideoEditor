@@ -39,7 +39,7 @@ Fiora Video Editor comes packed with features designed for an efficient editing 
 The project is organized into a clean and understandable structure:
 
 FioraVideoEditor/    
-├── assets/   
+├── assets/           
 │   ├── Fiora.png   
 │   ├── adjust_icon.png   
 │   ├── color_icon.png   
