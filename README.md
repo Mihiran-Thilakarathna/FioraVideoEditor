@@ -38,22 +38,21 @@ Fiora Video Editor comes packed with features designed for an efficient editing 
 
 The project is organized into a clean and understandable structure:
 
-
-FioraVideoEditor/
-├── assets/
-│   ├── Fiora.png
-│   ├── adjust_icon.png
-│   ├── color_icon.png
-│   ├── export_icon.png
-│   ├── filters_icon.png
-│   ├── import_icon.png
-│   ├── reset_icon.png
-│   └── trim_icon.png
-├── .gitignore
-├── backend_processor.py
-├── main_ui.py
-├── README.md
-└── requirements.txt
+FioraVideoEditor/    
+├── assets/   
+│   ├── Fiora.png   
+│   ├── adjust_icon.png   
+│   ├── color_icon.png   
+│   ├── export_icon.png   
+│   ├── filters_icon.png    
+│   ├── import_icon.png   
+│   ├── reset_icon.png   
+│   └── trim_icon.png      
+├── .gitignore   
+├── backend_processor.py   
+├── main_ui.py   
+├── README.md   
+└── requirements.txt    
 
 
 * **`assets/`**: Contains all static assets, such as UI icons and the main application icon.
